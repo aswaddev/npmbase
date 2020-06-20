@@ -17,7 +17,10 @@ class Home extends Component {
     const { packages } = this.state;
     return (
       <div>
+        {/* Search Component */}
         <Search setPackages={this.setPackages} />
+
+        {/* Search Results */}
         {packages.length > 0 ? (
           packages.map((packageData) => (
             <Card className='mb-2'>

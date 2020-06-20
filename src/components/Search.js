@@ -4,6 +4,7 @@ import { Form, InputGroup, InputGroupAddon, Button, Input } from 'reactstrap';
 class Search extends Component {
   state = {
     searchInput: '',
+    inputA: '',
   };
 
   handleChange = (e) => {
@@ -14,12 +15,8 @@ class Search extends Component {
     e.preventDefault();
     // Make ajax request here
     fetch(`https://api.npms.io/v2/search?q=${this.state.searchInput}`)
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        this.props.setPackages(data.results);
-      })
+      .then((response) => response.json())
+      .then((data) => this.props.setPackages(data.results))
       .catch((err) => console.error(err));
   };
 
